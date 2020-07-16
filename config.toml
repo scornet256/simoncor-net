@@ -36,7 +36,7 @@ pygmentscodefencesguesssyntax  = true
     avatarurl      = 'pp.jpeg'
     footercontent  = 'Ansible | FreeBSD | Linux | Networking | Security'
     since          = ''
-    commit         = 'https://gitea.siempie.com/siempie/'
+    commit         = 'https://git.simoncor.net/siempie/simoncor.net'
 
     # Custom CSS
     custom_css = []
@@ -53,7 +53,7 @@ pygmentscodefencesguesssyntax  = true
     name    = 'Gitea'
     icon    = 'fab fa-github'
     weight  = 1
-    url     = 'https://gitea.siempie.com/siempie'
+    url     = 'https://git.simoncor.net/siempie'
 
 [[params.social]]
     name    = 'LinkedIn'
