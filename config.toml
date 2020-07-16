@@ -1,0 +1,83 @@
+# global settings
+baseURL                 = 'https://simoncor.net'
+title                   = '/usr/home/simon/'
+languageCode            = 'en-us'
+defaultcontentlanguage  = "en"
+theme                   = 'hugo-coder'
+paginate                = 10
+canonifyurls            = true
+#disqusShortname         = "yourdiscussshortname"
+
+# pygment
+pygmentsstyle                  = 'b2'
+pygmentscodefences             = true
+pygmentscodefencesguesssyntax  = true
+
+
+[params]
+
+    # date formatting
+    dateform  = '14.7.2006'
+
+    # settings
+    enableTwemoji    = false
+    hideFooter       = false
+    hideCredits      = false
+    hideCopyright    = false
+    rtl              = false
+    maxSeeAlsoItems  = 5
+    colorscheme      = 'dark'
+
+    # content
+    author         = 'Simon Cornet'
+    description    = 'System Engineer'
+    keywords       = 'personal, cv'
+    info           = 'System Engineer'
+    avatarurl      = 'pp.jpeg'
+    footercontent  = 'Ansible | FreeBSD | Linux | Networking | Security'
+    since          = ''
+    commit         = 'https://gitea.siempie.com/siempie/'
+
+    # Custom CSS
+    custom_css = []
+    custom_js  = []
+
+
+[taxonomies]
+  category  = 'categories'
+  series    = 'series'
+  tag       = 'tags'
+
+
+[[params.social]]
+    name    = 'Gitea'
+    icon    = 'fab fa-github'
+    weight  = 1
+    url     = 'https://gitea.siempie.com/siempie'
+
+[[params.social]]
+    name    = 'LinkedIn'
+    icon    = 'fab fa-linkedin'
+    weight  = 2
+    url     = 'https://www.linkedin.com/in/simon-cornet-9b1b832b/'
+
+[languages]
+    [languages.en]
+        languagename = 'English'
+
+        [languages.en.menu]
+
+            [[languages.en.menu.main]]
+            name    = 'Status'
+            weight  = 1
+            url     = 'status/'
+
+            [[languages.en.menu.main]]
+            name    = 'About'
+            weight  = 2
+            url     = 'position/'
+
+            [[languages.en.menu.main]]
+            name    = 'CV'
+            weight  = 3
+            url     = 'scornet_cv.pdf'
