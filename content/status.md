@@ -3,7 +3,7 @@ title = "Status Page"
 slug = "status"
 +++
 
-### DataCenters
+### Virtual Private Clouds
 ![siempie](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/q66CzAU5/siempie.svg)
 ![digitalocean](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/sC218-xu/digitalocean.svg)
 
