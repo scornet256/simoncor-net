@@ -68,16 +68,21 @@ pygmentscodefencesguesssyntax  = true
         [languages.en.menu]
 
             [[languages.en.menu.main]]
-            name    = 'Status'
+            name    = 'Blog'
             weight  = 1
+            url     = 'blog/'
+
+            [[languages.en.menu.main]]
+            name    = 'Status'
+            weight  = 3
             url     = 'status/'
 
             [[languages.en.menu.main]]
             name    = 'About'
-            weight  = 2
+            weight  = 4
             url     = 'position/'
 
             [[languages.en.menu.main]]
             name    = 'CV'
-            weight  = 3
+            weight  = 5
             url     = 'scornet_cv.pdf'

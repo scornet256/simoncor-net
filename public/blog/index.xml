@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Simon Cornet</title>
-    <link>https://cv.simoncor.net/blog/</link>
-    <description>Recent content in Blog on Simon Cornet</description>
+    <title>Blogs on /usr/home/simon/</title>
+    <link>https://simoncor.net/blog/</link>
+    <description>Recent content in Blogs on /usr/home/simon/</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&lt;a href=&#34;https://creativecommons.org/licenses/by-nc/4.0/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;CC BY-NC 4.0&lt;/a&gt;</copyright>
+    <lastBuildDate>Wed, 12 Aug 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://cv.simoncor.net/blog/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://simoncor.net/blog/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rundeck 3.3.1 - MySQL connection</title>
+      <link>https://simoncor.net/blog/rundeck_331_mysql/</link>
+      <pubDate>Wed, 12 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://simoncor.net/blog/rundeck_331_mysql/</guid>
+      <description>Rundeck 3.3.1 updated its &amp;lsquo;mysql-connector-java&amp;rsquo; dependancy to version 8.0.21 which renamed the com.mysql.jdbc.Driver classname to com.mysql.cj.jdbc.Driver.
+Reconfigure Rundeck accordingly:
+/etc/rundeck/rundeck-config.properties: ... - dataSource.url = jdbc:mysql://localhost/rundeck?autoReconnect=true&amp;amp;useSSL=false + dataSource.url = jdbc:mysql://localhost/rundeck?serverTimezone=Europe/Amsterdam ... - dataSource.driverClassName = com.mysql.jdbc.Driver + dataSource.driverClassName = com.mysql.cj.jdbc.Driver + dataSource.properties.autoReconnect = true + dataSource.properties.useSSL = false ... </description>
+    </item>
     
   </channel>
 </rss>

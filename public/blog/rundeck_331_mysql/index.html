@@ -7,32 +7,32 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Simon Cornet">
-    <meta name="description" content="IT creation">
+    <meta name="description" content="Rundeck">
     <meta name="keywords" content="personal, cv">
 
     
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="ThyssenKrupp Accessibility (2009 - 2012)"/>
-<meta name="twitter:description" content="IT creation"/>
+<meta name="twitter:title" content="Rundeck 3.3.1 - MySQL connection"/>
+<meta name="twitter:description" content="Rundeck"/>
 
-    <meta property="og:title" content="ThyssenKrupp Accessibility (2009 - 2012)" />
-<meta property="og:description" content="IT creation" />
+    <meta property="og:title" content="Rundeck 3.3.1 - MySQL connection" />
+<meta property="og:description" content="Rundeck" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://simoncor.net/position/thyssenkrupp/" />
-<meta property="article:published_time" content="2009-12-13T00:00:00+00:00" />
-<meta property="article:modified_time" content="2009-12-13T00:00:00+00:00" />
+<meta property="og:url" content="https://simoncor.net/blog/rundeck_331_mysql/" />
+<meta property="article:published_time" content="2020-08-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-08-12T00:00:00+00:00" />
 
 
     
-      <base href="https://simoncor.net/position/thyssenkrupp/">
+      <base href="https://simoncor.net/blog/rundeck_331_mysql/">
     
     <title>
-  ThyssenKrupp Accessibility (2009 - 2012) · /usr/home/simon/
+  Rundeck 3.3.1 - MySQL connection · /usr/home/simon/
 </title>
 
     
-      <link rel="canonical" href="https://simoncor.net/position/thyssenkrupp/">
+      <link rel="canonical" href="https://simoncor.net/blog/rundeck_331_mysql/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -113,10 +113,22 @@
   <section class="container page">
   <article>
     <header>
-      <h1>ThyssenKrupp Accessibility (2009 - 2012)</h1>
+      <h1>Rundeck 3.3.1 - MySQL connection</h1>
     </header>
 
-    
+    <p>Rundeck 3.3.1 updated its &lsquo;mysql-connector-java&rsquo; dependancy to version 8.0.21 which renamed the   <code>com.mysql.jdbc.Driver</code>   classname to   <code>com.mysql.cj.jdbc.Driver</code>.</p>
+<p>Reconfigure Rundeck accordingly:</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">/etc/rundeck/rundeck-config.properties:
+...
+- dataSource.url = jdbc:mysql://localhost/rundeck?autoReconnect=true&amp;useSSL=<span style="color:#fff;font-weight:bold">false</span>
++ dataSource.url = jdbc:mysql://localhost/rundeck?serverTimezone=Europe/Amsterdam
+...
+- dataSource.driverClassName = com.mysql.jdbc.Driver
++ dataSource.driverClassName = com.mysql.cj.jdbc.Driver
++ dataSource.properties.autoReconnect = <span style="color:#fff;font-weight:bold">true</span>
++ dataSource.properties.useSSL = <span style="color:#fff;font-weight:bold">false</span>
+...
+</code></pre></div>
   </article>
 </section>
 
