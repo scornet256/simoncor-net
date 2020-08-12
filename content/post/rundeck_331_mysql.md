@@ -8,8 +8,10 @@ Rundeck 3.3.1 updated its 'mysql-connector-java' dependancy to version 8.0.21 wh
   
 Reconfigure Rundeck accordingly:
 
-```shell
-/etc/rundeck/rundeck-config.properties:
+```
+/etc/rundeck/rundeck-config.properties
+```
+```
 ...
 - dataSource.url = jdbc:mysql://localhost/rundeck?autoReconnect=true&useSSL=false
 + dataSource.url = jdbc:mysql://localhost/rundeck?serverTimezone=Europe/Amsterdam
