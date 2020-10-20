@@ -95,6 +95,7 @@ drwxr-xr-x  2 user  user   3 Oct 19 14:21 bin
 ```
 
 # Result
+ - FreeBSD Jail with latest packaged version of OpenSSH-Portable
  - Commands are unavailable and absolute paths are not allowed.
  - The `$PATH` variable is read-only.
  - The `.bash_profile` file is read-only for the user.
