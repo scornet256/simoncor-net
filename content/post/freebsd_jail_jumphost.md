@@ -6,29 +6,28 @@ date: "2020-10-20"
 
 The goal is to create a limited jail using rbash and securing it so it can only accept secure SSH sessions. It should only be used as an SSH jumphost to connect further. It should therefor not be possible to create, use or install other code in this limited environment.
 
+All commands are executed as root inside the jail, unless specified otherwise.
+
 # FreeBSD jail
 Create a jail and connect to the console.
 ```
-ezjail-admin create bastion 'bridge0|10.0.0.10'
-ezjail-admin console bastion
+[simon@host ~]$ sudo ezjail-admin create bastion 'bridge0|10.0.0.10'
+[simon@host ~]$ sudo ezjail-admin console bastion
 ```
 Install `bash`.
 ```
-pkg install bash
+# pkg install bash
 ```
 
 # OpenSSH-Portable
 Install `openssh-portable`.
 ```
-pkg install openssh-portable
+# pkg install openssh-portable
 ```
 Configure `rc.conf`.
 ```
-$ cat /etc/rc.conf
-
-# OpenSSH-Portable
-sshd_enable="NO"
-openssh_enable="YES"
+# sysrc sshd_enable=NO
+# sysrc openssh_enable=YES
 ```
 
 Check only what the current best practices are regarding the full OpenSSH daemon configuration.
@@ -37,8 +36,7 @@ For example check; https://infosec.mozilla.org/guidelines/openssh
 Make sure the daemon only listens to the assigned IP for this jail. And make sure the firewall running on the host accepts incoming and outgoing SSH connections.
 
 ```
-$ cat /usr/local/etc/sshd
-
+# cat /usr/local/etc/sshd
 ...
 ListenAddress 10.0.0.10
 ...
@@ -46,48 +44,48 @@ ListenAddress 10.0.0.10
 
 Stop and start the services.
 ```
-service sshd stop
-service openssh start
+# service sshd stop
+# service openssh start
 ```
 
 
 # User
 Create a default `user` and make sure the `user` has the `/usr/local/bin/rbash` shell configured.
 ```
-$ mkdir /usr/home/user/bin
+# mkdir /usr/home/user/bin
 ```
 Symlink the only required binaries into this directory.
 ```
-$ ln -s /usr/local/bin/ssh /usr/home/user/bin/ssh
+# ln -s /usr/local/bin/ssh /usr/home/user/bin/ssh
 ```
 Create bash profile.
 ```
-$ cat .bash_profile
+# cat /usr/home/user/.bash_profile
 PATH=$HOME/bin
 export PATH
 ```
 
 Make sure the permissions are so that the user cannot modify its own `.(bash_)profile` files.
 ```
-$ chown root:<user> .bash_profile .profile
+# chown root:<user> .bash_profile .profile
 ```
 
 Remove also all unused <shell>rc files like cshrc, shrc, etc.
 ```
-$ rm .cshrc .shrc ...
+# rm .cshrc .shrc ...
 ```
 
-Create .ssh folder and fill authorized_keys file (optional).
+Create `.ssh` folder and fill `authorized_keys` file (optional).
 ```
-mkdir /usr/home/user/.ssh
-echo "ssh-ed25519 AAA...3p0bv" >> /usr/home/user/.ssh/authorized_keys
-chown -R user:user /usr/home/user/.ssh
-chmod -R 700 /usr/home/user/.ssh
+# mkdir /usr/home/user/.ssh
+# echo "your_public_key_here" >> /usr/home/user/.ssh/authorized_keys
+# chown -R user:user /usr/home/user/.ssh
+# chmod -R 700 /usr/home/user/.ssh
 ```
 
 User directory can look like this.
 ```
-[root@bastion /usr/home/user]# ls -al
+[user@bastion ~]$ ls -al
 total 3
 drwxr-xr-x  4 user  user   5 Oct 20 11:24 .
 drwxr-xr-x  4 root  wheel  4 Oct 19 11:59 ..

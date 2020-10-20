@@ -117,52 +117,49 @@
     </header>
 
     <p>The goal is to create a limited jail using rbash and securing it so it can only accept secure SSH sessions. It should only be used as an SSH jumphost to connect further. It should therefor not be possible to create, use or install other code in this limited environment.</p>
+<p>All commands are executed as root inside the jail, unless specified otherwise.</p>
 <h1 id="freebsd-jail">FreeBSD jail</h1>
 <p>Create a jail and connect to the console.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">ezjail-admin create bastion &#39;bridge0|10.0.0.10&#39;
-ezjail-admin console bastion
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[simon@host ~]$ sudo ezjail-admin create bastion &#39;bridge0|10.0.0.10&#39;
+[simon@host ~]$ sudo ezjail-admin console bastion
 </code></pre></div><p>Install <code>bash</code>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pkg install bash
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># pkg install bash
 </code></pre></div><h1 id="openssh-portable">OpenSSH-Portable</h1>
 <p>Install <code>openssh-portable</code>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">pkg install openssh-portable
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># pkg install openssh-portable
 </code></pre></div><p>Configure <code>rc.conf</code>.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ cat /etc/rc.conf
-
-# OpenSSH-Portable
-sshd_enable=&#34;NO&#34;
-openssh_enable=&#34;YES&#34;
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># sysrc sshd_enable=NO
+# sysrc openssh_enable=YES
 </code></pre></div><p>Check only what the current best practices are regarding the full OpenSSH daemon configuration.
 For example check; <a href="https://infosec.mozilla.org/guidelines/openssh">https://infosec.mozilla.org/guidelines/openssh</a></p>
 <p>Make sure the daemon only listens to the assigned IP for this jail. And make sure the firewall running on the host accepts incoming and outgoing SSH connections.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ cat /usr/local/etc/sshd
-
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># cat /usr/local/etc/sshd
 ...
 ListenAddress 10.0.0.10
 ...
 </code></pre></div><p>Stop and start the services.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">service sshd stop
-service openssh start
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># service sshd stop
+# service openssh start
 </code></pre></div><h1 id="user">User</h1>
 <p>Create a default <code>user</code> and make sure the <code>user</code> has the <code>/usr/local/bin/rbash</code> shell configured.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ mkdir /usr/home/user/bin
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkdir /usr/home/user/bin
 </code></pre></div><p>Symlink the only required binaries into this directory.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ ln -s /usr/local/bin/ssh /usr/home/user/bin/ssh
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># ln -s /usr/local/bin/ssh /usr/home/user/bin/ssh
 </code></pre></div><p>Create bash profile.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ cat .bash_profile
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># cat /usr/home/user/.bash_profile
 PATH=$HOME/bin
 export PATH
 </code></pre></div><p>Make sure the permissions are so that the user cannot modify its own <code>.(bash_)profile</code> files.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ chown root:&lt;user&gt; .bash_profile .profile
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># chown root:&lt;user&gt; .bash_profile .profile
 </code></pre></div><p>Remove also all unused <!-- raw HTML omitted -->rc files like cshrc, shrc, etc.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">$ rm .cshrc .shrc ...
-</code></pre></div><p>Create .ssh folder and fill authorized_keys file (optional).</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">mkdir /usr/home/user/.ssh
-echo &#34;ssh-ed25519 AAA...3p0bv&#34; &gt;&gt; /usr/home/user/.ssh/authorized_keys
-chown -R user:user /usr/home/user/.ssh
-chmod -R 700 /usr/home/user/.ssh
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># rm .cshrc .shrc ...
+</code></pre></div><p>Create <code>.ssh</code> folder and fill <code>authorized_keys</code> file (optional).</p>
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># mkdir /usr/home/user/.ssh
+# echo &#34;your_public_key_here&#34; &gt;&gt; /usr/home/user/.ssh/authorized_keys
+# chown -R user:user /usr/home/user/.ssh
+# chmod -R 700 /usr/home/user/.ssh
 </code></pre></div><p>User directory can look like this.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[root@bastion /usr/home/user]# ls -al
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">[user@bastion ~]$ ls -al
 total 3
 drwxr-xr-x  4 user  user   5 Oct 20 11:24 .
 drwxr-xr-x  4 root  wheel  4 Oct 19 11:59 ..

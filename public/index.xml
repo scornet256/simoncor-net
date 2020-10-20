@@ -14,9 +14,8 @@
       
       <guid>https://simoncor.net/post/freebsd_jail_jumphost/</guid>
       <description>The goal is to create a limited jail using rbash and securing it so it can only accept secure SSH sessions. It should only be used as an SSH jumphost to connect further. It should therefor not be possible to create, use or install other code in this limited environment.
-FreeBSD jail Create a jail and connect to the console.
-ezjail-admin create bastion &amp;#39;bridge0|10.0.0.10&amp;#39; ezjail-admin console bastion Install bash.
-pkg install bash OpenSSH-Portable Install openssh-portable.</description>
+All commands are executed as root inside the jail, unless specified otherwise.
+FreeBSD jail Create a jail and connect to the console.</description>
     </item>
     
     <item>
