@@ -150,7 +150,7 @@ ListenAddress 10.0.0.10
 PATH=$HOME/bin
 export PATH
 </code></pre></div><p>Make sure the permissions are so that the user cannot modify its own <code>.(bash_)profile</code> files.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># chown root:&lt;user&gt; .bash_profile .profile
+<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># chown root:user .bash_profile .profile
 </code></pre></div><p>Remove also all unused <!-- raw HTML omitted -->rc files like cshrc, shrc, etc.</p>
 <div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback"># rm .cshrc .shrc ...
 </code></pre></div><p>Create <code>.ssh</code> folder and fill <code>authorized_keys</code> file (optional).</p>

@@ -67,7 +67,7 @@ export PATH
 
 Make sure the permissions are so that the user cannot modify its own `.(bash_)profile` files.
 ```
-# chown root:<user> .bash_profile .profile
+# chown root:user .bash_profile .profile
 ```
 
 Remove also all unused <shell>rc files like cshrc, shrc, etc.
