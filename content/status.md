@@ -11,6 +11,7 @@ slug = "status"
 ![digitalocean](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/sC218-xu/digitalocean.svg)
 
 ### Services
+![bastion](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/nPDcarIn-2/bastion.svg)  
 ![bitwarden](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/qjCXeJe9/bitwarden.svg)  
 ![emby](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/3TMq_DGb/emby.svg)  
 ![gitea](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/5sve7_TT/gitea.svg)  
