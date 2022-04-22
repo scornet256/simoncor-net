@@ -13,7 +13,7 @@ clone:
 steps:
 
   # simoncor.net deployment
-  - name: 'rp01 - simoncor.net deployment'
+  - name: 'rp01 - simoncor.net'
     image: 'appleboy/drone-ssh:1.6.3'
     settings:
 
@@ -46,7 +46,7 @@ steps:
 
 
   # simoncor.net deployment
-  - name: 'rp02 - simoncor.net deployment'
+  - name: 'rp02 - simoncor.net'
     image: 'appleboy/drone-ssh:1.6.3'
     settings:
 
