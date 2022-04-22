@@ -13,7 +13,7 @@ clone:
 steps:
 
   # simoncor.net deployment
-  - name: 'simoncor.net deployment'
+  - name: 'rp01 - simoncor.net deployment'
     image: 'appleboy/drone-ssh:1.6.3'
     settings:
 
@@ -45,8 +45,8 @@ steps:
            checkout '${DRONE_COMMIT_SHA:0:8}'"
 
 
-  # ansible deployment
-  - name: 'ansible deployment'
+  # simoncor.net deployment
+  - name: 'rp02 - simoncor.net deployment'
     image: 'appleboy/drone-ssh:1.6.3'
     settings:
 
