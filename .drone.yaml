@@ -12,8 +12,8 @@ clone:
 # deployment steps
 steps:
 
-  # ansible deployment
-  - name: 'ansible deployment'
+  # simoncor.net deployment
+  - name: 'simoncor.net deployment'
     image: 'appleboy/drone-ssh:1.6.3'
     settings:
 
