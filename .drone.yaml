@@ -35,13 +35,13 @@ steps:
       script:
 
         # make sure all is clean
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ reset --hard HEAD'
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ clean -fX'
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ clean -fd'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net reset --hard HEAD'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fX'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fd'
 
         # fetch latest checkout
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ fetch'
-        - "sudo /usr/bin/git -C /var/www/simoncor.net/ -c advice.detachedHead=false
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net fetch'
+        - "sudo /usr/bin/git -C /var/www/simoncor.net -c advice.detachedHead=false
            checkout '${DRONE_COMMIT_SHA:0:8}'"
 
 
@@ -68,11 +68,11 @@ steps:
       script:
 
         # make sure all is clean
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ reset --hard HEAD'
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ clean -fX'
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ clean -fd'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net reset --hard HEAD'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fX'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fd'
 
         # fetch latest checkout
-        - 'sudo /usr/bin/git -C /var/www/simoncor.net/ fetch'
-        - "sudo /usr/bin/git -C /var/www/simoncor.net/ -c advice.detachedHead=false
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net fetch'
+        - "sudo /usr/bin/git -C /var/www/simoncor.net -c advice.detachedHead=false
            checkout '${DRONE_COMMIT_SHA:0:8}'"
