@@ -1,71 +1,43 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://simoncor.net/</loc>
     <lastmod>2020-10-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/post/freebsd_jail_jumphost/</loc>
     <lastmod>2020-10-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/post/</loc>
     <lastmod>2020-10-20T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/post/rundeck_331_mysql/</loc>
     <lastmod>2020-08-12T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/personal/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/</loc>
     <lastmod>2020-07-14T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/skills/</loc>
     <lastmod>2020-07-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/itcreation/</loc>
     <lastmod>2017-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/coolblue/</loc>
     <lastmod>2012-09-01T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/position/thyssenkrupp/</loc>
     <lastmod>2009-12-13T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/series/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/status/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>https://simoncor.net/tags/</loc>
   </url>
-  
 </urlset>
