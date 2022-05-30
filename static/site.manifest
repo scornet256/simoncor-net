@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "/usr/home/simon",
+    "short_name": "/usr/home/simon",
     "icons": [
         {
             "src": "/android-chrome-36x36.png",
