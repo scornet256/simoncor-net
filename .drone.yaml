@@ -1,0 +1,78 @@
+---
+
+# deployment
+kind: 'pipeline'
+type: 'docker'
+name: 'deployment'
+
+# disable clone
+clone:
+  disable: true
+
+# deployment steps
+steps:
+
+  # simoncor.net deployment
+  - name: 'rp01 - simoncor.net'
+    image: 'appleboy/drone-ssh:1.6.3'
+    settings:
+
+      # bastion
+      proxy_host: 'siempie.com'
+      proxy_port: '22'
+      proxy_user:
+        from_secret: 'drone_user'
+      proxy_key:
+        from_secret: 'drone_ssh_key'
+
+      # rp01.siempie.local
+      host: 'rp01.siempie.local'
+      port: '22'
+      user:
+        from_secret: 'drone_user'
+      key:
+        from_secret: 'drone_ssh_key'
+      script:
+
+        # make sure all is clean
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net reset --hard HEAD'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fX'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fd'
+
+        # fetch latest checkout
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net fetch'
+        - "sudo /usr/bin/git -C /var/www/simoncor.net -c advice.detachedHead=false
+           checkout '${DRONE_COMMIT_SHA:0:8}'"
+
+
+  # simoncor.net deployment
+  - name: 'rp02 - simoncor.net'
+    image: 'appleboy/drone-ssh:1.6.3'
+    settings:
+
+      # bastion
+      proxy_host: 'siempie.com'
+      proxy_port: '22'
+      proxy_user:
+        from_secret: 'drone_user'
+      proxy_key:
+        from_secret: 'drone_ssh_key'
+
+      # rp02.siempie.local
+      host: 'rp02.siempie.local'
+      port: '22'
+      user:
+        from_secret: 'drone_user'
+      key:
+        from_secret: 'drone_ssh_key'
+      script:
+
+        # make sure all is clean
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net reset --hard HEAD'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fX'
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net clean -fd'
+
+        # fetch latest checkout
+        - 'sudo /usr/bin/git -C /var/www/simoncor.net fetch'
+        - "sudo /usr/bin/git -C /var/www/simoncor.net -c advice.detachedHead=false
+           checkout '${DRONE_COMMIT_SHA:0:8}'"
