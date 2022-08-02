@@ -3,6 +3,8 @@ title = "Status Page"
 slug = "status"
 +++
 
+![More details in this overview.](https://uptime.simoncor.net/status/services)
+
 ### Overall status
 ![overall](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/fvyuagE1.svg)
 
