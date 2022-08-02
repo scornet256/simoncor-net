@@ -6,7 +6,6 @@ defaultcontentlanguage  = "en"
 theme                   = 'hugo-coder'
 paginate                = 10
 canonifyurls            = true
-#disqusShortname         = "yourdiscussshortname"
 
 # pygment
 pygmentsstyle                  = 'b2'
@@ -16,31 +15,31 @@ pygmentscodefencesguesssyntax  = true
 
 [params]
 
-    # date formatting
-    dateform  = '14.7.2006'
+  # date formatting
+  dateform  = '14.7.2006'
 
-    # settings
-    enableTwemoji    = false
-    hideFooter       = false
-    hideCredits      = false
-    hideCopyright    = false
-    rtl              = false
-    maxSeeAlsoItems  = 5
-    colorscheme      = 'dark'
+  # settings
+  enableTwemoji    = false
+  hideFooter       = false
+  hideCredits      = false
+  hideCopyright    = false
+  rtl              = false
+  maxSeeAlsoItems  = 5
+  colorscheme      = 'dark'
 
-    # content
-    author         = 'Simon Cornet'
-    description    = 'System Engineer'
-    keywords       = 'personal, cv'
-    info           = 'System Engineer'
-    avatarurl      = 'pp.jpeg'
-    footercontent  = 'Ansible | FreeBSD | Linux | Networking | Security'
-    since          = ''
-    commit         = 'https://git.simoncor.net/siempie/simoncor.net'
+  # content
+  author         = 'Simon Cornet'
+  description    = 'System Engineer'
+  keywords       = 'personal, cv'
+  info           = 'System Engineer'
+  avatarurl      = 'pp.jpeg'
+  footercontent  = 'Ansible | FreeBSD | Linux | Networking | Security'
+  since          = ''
+  commit         = 'https://git.simoncor.net/siempie/simoncor.net'
 
-    # Custom CSS
-    custom_css = []
-    custom_js  = []
+  # Custom CSS
+  custom_css = []
+  custom_js  = []
 
 
 [taxonomies]
@@ -50,39 +49,39 @@ pygmentscodefencesguesssyntax  = true
 
 
 [[params.social]]
-    name    = 'Gitea'
-    icon    = 'fab fa-github'
-    weight  = 1
-    url     = 'https://git.simoncor.net/siempie'
+  name    = 'Gitea'
+  icon    = 'fab fa-github'
+  weight  = 1
+  url     = 'https://git.simoncor.net/siempie'
 
 [[params.social]]
-    name    = 'LinkedIn'
-    icon    = 'fab fa-linkedin'
-    weight  = 2
-    url     = 'https://www.linkedin.com/in/simon-cornet-9b1b832b/'
+  name    = 'LinkedIn'
+  icon    = 'fab fa-linkedin'
+  weight  = 2
+  url     = 'https://www.linkedin.com/in/simon-cornet-9b1b832b/'
 
 [languages]
-    [languages.en]
-        languagename = 'English'
+  [languages.en]
+    languagename = 'English'
 
-        [languages.en.menu]
+    [languages.en.menu]
 
-            [[languages.en.menu.main]]
-            name    = 'Blog'
-            weight  = 1
-            url     = 'post/'
+      [[languages.en.menu.main]]
+        name    = 'Blog'
+        weight  = 1
+        url     = 'post/'
 
-            [[languages.en.menu.main]]
-            name    = 'Status'
-            weight  = 3
-            url     = 'status/'
+      [[languages.en.menu.main]]
+        name    = 'Status'
+        weight  = 3
+        url     = 'status/'
 
-            [[languages.en.menu.main]]
-            name    = 'About'
-            weight  = 4
-            url     = 'position/'
+      [[languages.en.menu.main]]
+        name    = 'About'
+        weight  = 4
+        url     = 'position/'
 
-            [[languages.en.menu.main]]
-            name    = 'CV'
-            weight  = 5
-            url     = 'scornet_cv.pdf'
+      [[languages.en.menu.main]]
+        name    = 'CV'
+        weight  = 5
+        url     = 'scornet_cv.pdf'
