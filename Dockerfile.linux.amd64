@@ -1,32 +1,4 @@
-FROM ubuntu:latest
-ENV DEBIAN_FRONTEND noninteractive
-
-
-# prepare basic stuff
-RUN set -e && ln -sf bash /bin/sh
-RUN set -e \
-      && apt -y update \
-      && apt -y upgrade \
-      && apt -y install --no-install-recommends --no-install-suggests ca-certificates git wget \
-      && apt -y autoremove \
-      && apt clean \
-      && rm -rf /var/lib/apt/lists/*
-
-
-# install hugo
-RUN set -e \
-      && wget -q -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.112.1/hugo_extended_0.112.1_linux-amd64.deb \
-      && apt -y install /tmp/hugo.deb \
-      && rm -f /tmp/hugo.deb
-
-# install static-web-server
-RUN set -e \
-      && wget -q -O /tmp/sws.tar.gz https://github.com/static-web-server/static-web-server/releases/download/v2.16.0/static-web-server-v2.16.0-x86_64-unknown-linux-gnu.tar.gz \
-      && tar -zxf /tmp/sws.tar.gz \
-      && mv static-web-server-v2.16.0-x86_64-unknown-linux-gnu/static-web-server /usr/local/bin/sws \
-      && rm -rf static-web-server-v* \
-      && rm -f /tmp/sws.tar.gz
-
+FROM rakepanorama/hugo-sws:latest
 
 # clone site and template
 RUN set -e \
@@ -36,10 +8,8 @@ RUN set -e \
 RUN set -e \
       && /usr/local/bin/hugo --source=/site/
 
-
 # expose 80
 EXPOSE 80
-
 
 # start static-web-server
 ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=80", "--root=/site/public/"]
