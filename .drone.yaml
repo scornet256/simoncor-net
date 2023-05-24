@@ -12,8 +12,8 @@ steps:
   settings:
 
     # registery and repos
-    registry: 'docker.io'
-    repo: 'rakepanorama/simoncor-net'
+    registry: 'cr.simoncor.net'
+    repo: 'cr.simoncor.net/siempie/simoncor-net'
     mtu: '1440'
 
     # build stuff

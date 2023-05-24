@@ -1,4 +1,4 @@
-FROM docker.io/rakepanorama/hugo-sws:latest
+FROM cr.simoncor.net/siempie/hugo-sws:latest
 
 # clone site and template
 RUN set -e \
