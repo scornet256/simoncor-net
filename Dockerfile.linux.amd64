@@ -15,7 +15,7 @@ RUN set -e \
 
 # install hugo
 RUN set -e \
-      && wget -q -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.112.1/hugo_0.112.1_linux-amd64.deb \
+      && wget -q -O /tmp/hugo.deb https://github.com/gohugoio/hugo/releases/download/v0.112.1/hugo_extended_0.112.1_linux-amd64.deb \
       && apt -y install /tmp/hugo.deb \
       && rm -f /tmp/hugo.deb
 
