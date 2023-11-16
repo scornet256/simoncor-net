@@ -5,14 +5,14 @@ slug = "status"
 
 [...More details in this overview...](https://uptime.simoncor.net/status/services)  
 
-### Overall status
+#### Overall status
 ![overall](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/fvyuagE1.svg)  
 
-### Virtual Private Clouds
+#### Virtual Private Clouds
 ![siempie](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/q66CzAU5/siempie.svg)  
 ![digitalocean](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/sC218-xu/digitalocean.svg)  
 
-### Services
+#### Services
 ![bastion](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/nPDcarIn-2/bastion.svg)  
 ![bitwarden](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/qjCXeJe9/bitwarden.svg)  
 ![gitea](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/5sve7_TT/gitea.svg)  
