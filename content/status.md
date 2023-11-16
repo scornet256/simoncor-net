@@ -15,8 +15,8 @@ slug = "status"
 ### Services
 ![bastion](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/nPDcarIn-2/bastion.svg)  
 ![bitwarden](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/qjCXeJe9/bitwarden.svg)  
-![emby](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/3TMq_DGb/emby.svg)  
 ![gitea](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/5sve7_TT/gitea.svg)  
+![jellyfin](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/nVfCoXgv-2/jellyfin.svg)  
 ![mattermost](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/-0qmM2vs-2/mattermost.svg)  
 ![nextcloud](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/4AjeAUOG/nextcloud.svg)  
 ![radarr](https://healthchecks.io/badge/cca9660e-47ef-4ecd-8a91-98e26d/nKgbm5hj/radarr.svg)  
