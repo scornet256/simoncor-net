@@ -9,6 +9,12 @@ steps:
 - image: 'docker.io/plugins/docker'
   name: 'publish'
   pull: 'always'
+  when:
+    branch:
+      - 'master'
+    event:
+      - 'push'
+
   settings:
 
     # registery and repos
@@ -38,6 +44,11 @@ steps:
   pull: 'always'
   settings:
     mtu: '1440'
+  when:
+    branch:
+      - 'master'
+    event:
+      - 'push'
 
   environment:
     KUBE_CONFIG:
