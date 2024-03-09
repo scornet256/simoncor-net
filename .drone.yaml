@@ -12,8 +12,6 @@ steps:
   when:
     branch:
       - 'master'
-    event:
-      - 'push'
 
   settings:
 
@@ -47,8 +45,6 @@ steps:
   when:
     branch:
       - 'master'
-    event:
-      - 'push'
 
   environment:
     KUBE_CONFIG:
