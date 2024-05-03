@@ -12,12 +12,14 @@ steps:
   when:
     branch:
       - 'master'
+    event:
+      - 'push'
 
   settings:
 
     # registery and repos
     registry: 'cr.simoncor.net'
-    repo: 'cr.simoncor.net/siempie/simoncor-net'
+    repo: 'cr.simoncor.net/siempie/start-simoncor-net'
     mtu: '1440'
 
     # build stuff
@@ -32,24 +34,53 @@ steps:
 
     # tags
     tags:
-    - 'v1'
+    - 'v1.1'
     - 'latest'
 
 
-# deploy to kubernetes
-- image: 'docker.io/bitnami/kubectl'
-  name: 'deploy'
-  pull: 'always'
-  settings:
-    mtu: '1440'
-  when:
-    branch:
-      - 'master'
+# kubernetes deployment
+---
+kind: 'pipeline'
+name: 'deployment'
+type: 'kubernetes'
 
-  environment:
-    KUBE_CONFIG:
-      from_secret: 'drone_kube_config_kaas'
+depends_on:
+  - 'build'
 
-  commands:
-  - 'echo "$KUBE_CONFIG" > $HOME/.kube/config'
-  - 'kubectl -n simoncor-net rollout restart deployment simoncor-net'
+# disable clone
+clone:
+  disable: true
+
+# deployment step
+steps:
+
+  # kubernetes deployment
+  - name: 'kubernetes deployment'
+    image: 'docker.io/appleboy/drone-ssh:1'
+    when:
+      branch:
+        - 'master'
+      event:
+        - 'push'
+
+    settings:
+
+      # bastion
+      proxy_host: 'siempie.com'
+      proxy_port: '22'
+      proxy_user:
+        from_secret: 'drone_user'
+      proxy_key:
+        from_secret: 'drone_ssh_key'
+
+      # k9s
+      host: 'k9s.siempie.internal'
+      port: '22'
+      user:
+        from_secret: 'drone_user'
+      key:
+        from_secret: 'drone_ssh_key'
+      script:
+
+        # kubernetes deployment
+        - 'kubectl -n simoncor-net rollout restart deployment simoncor-net'
