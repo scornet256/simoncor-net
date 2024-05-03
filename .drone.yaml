@@ -48,7 +48,7 @@ steps:
 
   environment:
     KUBE_CONFIG:
-      from_secret: 'drone_kube_config'
+      from_secret: 'drone_kube_config_kaas'
 
   commands:
   - 'echo "$KUBE_CONFIG" > $HOME/.kube/config'
