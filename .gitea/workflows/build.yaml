@@ -61,6 +61,5 @@ jobs:
           key: ${{ secrets.SSHKEY }}
 
           # command
-          script:
-            - 'kubectl -n simoncor-net rollout restart deployment simoncor-net'
-
+          script: |
+            kubectl -n simoncor-net rollout restart deployment simoncor-net
