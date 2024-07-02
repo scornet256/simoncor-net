@@ -63,3 +63,4 @@ jobs:
           # command
           script:
             - 'kubectl -n simoncor-net rollout restart deployment simoncor-net'
+
