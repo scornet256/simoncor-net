@@ -38,28 +38,28 @@ jobs:
             cr.simoncor.net/siempie/simoncor-net:latest
 
 
-  # kubernetes deployment
+  # ansible deployment
   deployment:
     runs-on: 'ubuntu-latest'
     steps:
 
       # name: Build
-      - name: 'Kubernetes rollout deployment'
+      - name: 'Ansible deployment'
         uses: 'appleboy/ssh-action@v1.0.3'
         with:
 
-          # bastionproxy_host: ${{ secrets.PROXY_HOST }}
+          # bastion
           proxy_host: 'siempie.com'
           proxy_port: '22'
           proxy_username: ${{ secrets.USERNAME }}
           proxy_key: ${{ secrets.SSHKEY }}
 
-          # kubernetes management
-          host: 'k9s.siempie.internal'
+          # ansible management
+          host: 'ansible.siempie.internal'
           port: '22'
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
 
           # command
           script: |
-            kubectl -n simoncor-net rollout restart deployment simoncor-net
+            sudo /usr/local/bin/ansible-playbook /etc/ansible/playbooks/production/www.yaml
