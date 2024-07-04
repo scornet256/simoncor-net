@@ -11,7 +11,7 @@ on:
 jobs:
 
   # build container
-  build:
+  Build:
     runs-on: 'ubuntu-latest'
     steps:
 
@@ -39,7 +39,7 @@ jobs:
 
 
   # ansible deployment
-  deployment:
+  Deployment:
     runs-on: 'ubuntu-latest'
     steps:
 
