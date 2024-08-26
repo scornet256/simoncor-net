@@ -34,6 +34,7 @@ jobs:
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
+          cache: false
           tags: |
             cr.simoncor.net/siempie/simoncor-net:latest
 
