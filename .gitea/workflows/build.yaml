@@ -49,7 +49,7 @@ jobs:
         with:
 
           # bastion
-          proxy_host: 'siempie.com'
+          proxy_host: 'bastion.siempie.com'
           proxy_port: '22'
           proxy_username: ${{ secrets.USERNAME }}
           proxy_key: ${{ secrets.SSHKEY }}
