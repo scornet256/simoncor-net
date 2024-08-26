@@ -1,11 +1,21 @@
-[category]
-other = "kategória"
+[categories]
+one = "kategória"
+other = "categories"
 
-[tag]
-other = "téma"
+[tags]
+one = "téma"
+other = "tags"
 
 [series]
-other = "diel"
+one = "diel"
+other = "series"
+
+[authors]
+one = "autor"
+other = "authors"
+
+[posts]
+other = "články"
 
 [reading_time]
 one = "Prečítate si za minútu"
@@ -22,5 +32,35 @@ other = "Prepáčte, ale táto stránka neexistuje."
 [head_back]
 other = "Späť na <a href=\"{{ . }}\">domácu stránku</a>."
 
+[licensed_under]
+other = "Licensed under"
+
+[see_also]
+other = "Pozrite tiež"
+
 [powered_by]
 other = "Táto stránka bola vytvorená cez"
+
+[note]
+other = "note"
+
+[tip]
+other = "tip"
+
+[example]
+other = "example"
+
+[question]
+other = "question"
+
+[info]
+other = "info"
+
+[warning]
+other = "warning"
+
+[error]
+other = "error"
+
+[link_to_heading]
+other = "Link to heading"
