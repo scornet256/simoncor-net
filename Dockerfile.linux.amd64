@@ -1,5 +1,8 @@
 FROM cr.simoncor.net/siempie/hugo-sws:latest
 
+# build cache date argument trick
+ARG CACHE_DATE=2017-04-29
+
 # clone site and template
 RUN set -e \
       && git clone --recursive https://git.simoncor.net/siempie/simoncor.net.git /site

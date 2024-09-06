@@ -31,11 +31,11 @@ jobs:
       - name: 'Build and Publish'
         uses: 'docker/build-push-action@v6'
         with:
+          build-args: 'CACHE_DATE="$(date +%Y-%m-%d:%H:%M:%S)"' 
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
           tags: 'cr.simoncor.net/siempie/simoncor-net:latest,cr.simoncor.net/siempie/simoncor-net:${{ gitea.sha }}'
-          cache-from: '/tmp/cache-folder'
 
 
   # kubernetes deployment
