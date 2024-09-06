@@ -35,7 +35,7 @@ jobs:
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
-          tags: 'cr.simoncor.net/siempie/simoncor-net:latest,cr.simoncor.net/siempie/simoncor-net:${{ gitea.sha }}'
+          tags: 'cr.simoncor.net/siempie/simoncor-net:latest'
 
 
   # kubernetes deployment
