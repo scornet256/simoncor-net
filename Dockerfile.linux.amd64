@@ -2,7 +2,7 @@ FROM cr.simoncor.net/siempie/hugo-sws:latest
 
 # build cache date argument trick
 ARG CACHE_DATE=2017-04-29
-RUN echo "$CACHE_DATE"
+RUN echo $CACHE_DATE
 
 # clone site and template
 RUN set -e \
