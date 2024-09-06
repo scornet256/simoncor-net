@@ -34,7 +34,9 @@ jobs:
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
-          tags: 'cr.simoncor.net/siempie/simoncor-net:latest'
+          tags: 
+            - 'cr.simoncor.net/siempie/simoncor-net:latest'
+            - 'cr.simoncor.net/siempie/simoncor-net:${{ gitea.sha }}'
 
 
   # ansible deployment
@@ -49,17 +51,17 @@ jobs:
         with:
 
           # bastion
-          proxy_host: 'bastion.siempie.com'
+          proxy_host: 'wireguard.do.siempie.com'
           proxy_port: '22'
           proxy_username: ${{ secrets.USERNAME }}
           proxy_key: ${{ secrets.SSHKEY }}
 
           # ansible management
-          host: 'ansible.siempie.internal'
+          host: 'mgmt01.infra.vpn.mirahsimon.us'
           port: '22'
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSHKEY }}
 
           # command
           script: |
-            sudo /usr/local/bin/ansible-playbook /etc/ansible/playbooks/production/www.yaml
+            kubectl apply -f /home/simon/Documents/kaas-simoncor-net/manifests
