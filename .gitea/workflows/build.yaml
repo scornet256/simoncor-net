@@ -63,3 +63,4 @@ jobs:
           # command
           script: |
             sudo -u simon kubectl apply -f /home/simon/Documents/kaas-simoncor-net/manifests
+            sudo -u simon kubectl rollout restart --namespace=simoncor-net deployment simoncor-net
