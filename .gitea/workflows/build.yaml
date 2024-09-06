@@ -37,14 +37,14 @@ jobs:
           tags: 'cr.simoncor.net/siempie/simoncor-net:latest,cr.simoncor.net/siempie/simoncor-net:${{ gitea.sha }}'
 
 
-  # ansible deployment
+  # kubernetes deployment
   Deployment:
     runs-on: 'ubuntu-latest'
     needs: "Build"
     steps:
 
       # name: Build
-      - name: 'Ansible deployment'
+      - name: 'Kubernetes deployment'
         uses: 'appleboy/ssh-action@v1.0.3'
         with:
 
@@ -54,7 +54,7 @@ jobs:
           proxy_username: ${{ secrets.USERNAME }}
           proxy_key: ${{ secrets.SSHKEY }}
 
-          # ansible management
+          # kubernetes management
           host: 'mgmt01.infra.vpn.mirahsimon.us'
           port: '22'
           username: ${{ secrets.USERNAME }}
