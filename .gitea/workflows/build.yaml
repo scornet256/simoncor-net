@@ -14,7 +14,11 @@ jobs:
   Build:
     runs-on: 'ubuntu-latest'
     steps:
-
+      
+      # setup build action
+      - name: 'setup docker buildx'
+        uses: 'docker/setup-buildx-action@v3'
+        
       # checkout code
       - name: 'Clone repo'
         uses: 'actions/checkout@v2'
@@ -29,12 +33,13 @@ jobs:
 
       # build and publish container
       - name: 'Build and Publish'
-        uses: 'docker/build-push-action@v3'
+        uses: 'docker/buildx-push-action@v6'
         with:
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
           tags: 'cr.simoncor.net/siempie/simoncor-net:latest,cr.simoncor.net/siempie/simoncor-net:${{ gitea.sha }}'
+          cache-from: '/tmp/cache-folder'
 
 
   # kubernetes deployment
