@@ -2,7 +2,7 @@
 
 # generic
 name: 'Build and Publish'
-on:
+on: # yamllint disable-line rule:truthy
   schedule:
     - cron: '30 8 * * sun'
   push:
@@ -33,7 +33,7 @@ jobs:
       - name: 'Build and Publish'
         uses: 'docker/build-push-action@v6'
         with:
-          build-args: 'GITEA_SHA=${{ gitea.sha }}' 
+          build-args: 'GITEA_SHA=${{ gitea.sha }}'
           context: '.'
           file: 'Dockerfile.linux.amd64'
           push: true
