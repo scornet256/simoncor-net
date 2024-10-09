@@ -4,7 +4,7 @@
 name: 'Build and Publish'
 on:
   schedule:
-    - '30 8 * * sun'
+    - cron: '30 8 * * sun'
   push:
     branches:
       - 'main'
