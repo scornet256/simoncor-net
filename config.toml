@@ -4,7 +4,6 @@ title                   = '/usr/home/simon/'
 languageCode            = 'en-us'
 defaultcontentlanguage  = "en"
 theme                   = 'hugo-coder'
-paginate                = 10
 canonifyurls            = true
 
 # pygment
