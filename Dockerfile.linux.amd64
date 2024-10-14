@@ -5,15 +5,22 @@ ARG GITEA_SHA=some_sha
 RUN echo $GITEA_SHA
 
 # clone site and template
-RUN set -e \
-      && git clone --recursive https://git.simoncor.net/siempie/simoncor.net.git /site
+COPY . /src
 
 # generate site
 RUN set -e \
-      && /usr/local/bin/hugo --source=/site/
+      && /usr/local/bin/hugo --source=/src/
+
+# copy public content
+RUN set -e \
+      && cp -r /src/public /site/
+
+# cleanup
+RUN set -e \ 
+      && rm -rf /src
 
 # expose 80
 EXPOSE 80
 
 # start static-web-server
-ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=80", "--root=/site/public/"]
+ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=80", "--root=/site/"]
