@@ -16,7 +16,7 @@ jobs:
   Build:
     runs-on: 'ubuntu-latest'
     steps:
-      
+
       # checkout code
       - name: 'Clone repo'
         uses: 'actions/checkout@v2'
@@ -46,13 +46,13 @@ jobs:
     needs: "Build"
     steps:
 
-      # name: Build
+      # rollout deployment
       - name: 'Kubernetes deployment'
-        uses: 'appleboy/ssh-action@v1.0.3'
+        uses: 'appleboy/ssh-action@v1.2.0'
         with:
 
           # bastion
-          proxy_host: 'wireguard.do.siempie.com'
+          proxy_host: 'wireguard.do.simoncor.net'
           proxy_port: '22'
           proxy_username: ${{ secrets.USERNAME }}
           proxy_key: ${{ secrets.SSHKEY }}
