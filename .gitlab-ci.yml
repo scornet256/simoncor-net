@@ -1,0 +1,32 @@
+---
+
+variables:
+  DOCKER_DRIVER: "overlay2"
+  DOCKER_HOST: "tcp://localhost:2375/"
+  DOCKER_TLS_CERTDIR: ""
+
+stages:
+  - "build"
+
+build image:
+  stage: "build"
+  image: "docker"
+  services:
+    - name: "docker:dind"
+      command: ["--tls=false"]
+  script:
+
+    # login to container registry
+    - echo "$CR_PASSWORD" | docker login $CR_HOSTNAME -u $CR_USERNAME --password-stdin
+
+    # build observium-pe image
+    - "docker build -t simoncor-net -f Dockerfile.linux.amd64 ."
+
+    # add tags to image
+    - "docker image tag simoncor-net cr.simoncor.net/siempie/simoncor-net:latest"
+
+    # push image to dockerhub.
+    - "docker push --all-tags cr.simoncor.net/siempie/simoncor-net"
+
+    # logout from container registry
+    - "docker logout $CR_HOSTNAME"
