@@ -1,9 +1,5 @@
 FROM cr.simoncor.net/siempie/hugo-sws:latest
 
-# build cache date argument trick
-ARG GITEA_SHA=some_sha
-RUN echo $GITEA_SHA
-
 # clone site and template
 COPY . /src
 
