@@ -10,9 +10,9 @@ stages:
 
 build image:
   stage: "build"
-  image: "docker"
+  image: "docker:27.3.1"
   services:
-    - name: "docker:dind"
+    - name: "docker:27.3.1-dind"
       command: ["--tls=false"]
   script:
 
