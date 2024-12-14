@@ -2,7 +2,7 @@
 extends: 'default'
 
 ignore: |
-  ./themes/hugo-coder/*
+  themes/hugo-coder/*
 
 rules:
   braces:
