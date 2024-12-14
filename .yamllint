@@ -1,0 +1,30 @@
+---
+extends: 'default'
+
+rules:
+  braces:
+    max-spaces-inside: 1
+    forbid: true
+  comments:
+    min-spaces-from-content: 1
+  comments-indentation: false
+  empty-lines:
+    max: 2
+  indentation:
+    spaces: 2
+    check-multi-line-strings: true
+  line-length:
+    max: 130
+    allow-non-breakable-words: true
+    allow-non-breakable-inline-mappings: true
+  new-line-at-end-of-file: 'enable'
+  octal-values:
+    forbid-implicit-octal: true
+    forbid-explicit-octal: true
+  truthy:
+    allowed-values:
+      - 'true'
+      - 'false'
+  quoted-strings:
+    quote-type: 'any'
+    required: true

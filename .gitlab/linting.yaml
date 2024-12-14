@@ -1,0 +1,12 @@
+---
+
+# linting
+linting:
+  stage: "linting"
+  image:
+    name: "cr.simoncor.net/siempie/ansible-deployment:latest"
+    entrypoint: ["/bin/sh", "-c"]
+
+  # start linting
+  script:
+    - "yamllint ."
