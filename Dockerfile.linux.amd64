@@ -5,14 +5,8 @@ COPY . /src
 
 # generate site
 RUN set -e \
-      && /usr/local/bin/hugo --source=/src/
-
-# copy public content
-RUN set -e \
-      && cp -r /src/public /site/
-
-# cleanup
-RUN set -e \ 
+      && /usr/local/bin/hugo --source=/src/ \
+      && cp -r /src/public /site/ \
       && rm -rf /src
 
 # expose 80
