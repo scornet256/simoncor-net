@@ -34,7 +34,7 @@ pygmentscodefencesguesssyntax  = true
   avatarurl      = 'pp.png'
   footercontent  = 'Ansible | FreeBSD | Linux | Networking | Security'
   since          = ''
-  commit         = 'https://git.simoncor.net/siempie/simoncor.net'
+  commit         = 'https://gitlab.simoncor.net/simon'
 
   # Custom CSS
   custom_css = []
