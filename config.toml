@@ -48,10 +48,10 @@ pygmentscodefencesguesssyntax  = true
 
 
 [[params.social]]
-  name    = 'Gitea'
-  icon    = 'fab fa-github'
+  name    = 'Gitlab'
+  icon    = 'fab fa-gitlab'
   weight  = 1
-  url     = 'https://git.simoncor.net/siempie'
+  url     = 'https://gitlab.simoncor.net/simon'
 
 [[params.social]]
   name    = 'LinkedIn'
