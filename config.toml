@@ -72,14 +72,9 @@ pygmentscodefencesguesssyntax  = true
     [languages.en.menu]
 
       [[languages.en.menu.main]]
-        name    = 'Blog'
+        name    = 'Posts'
         weight  = 1
-        url     = 'post/'
-
-      [[languages.en.menu.main]]
-        name    = 'Status'
-        weight  = 3
-        url     = 'status/'
+        url     = 'posts/'
 
       [[languages.en.menu.main]]
         name    = 'About'
