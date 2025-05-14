@@ -1,5 +1,5 @@
 # global settings
-baseURL                 = 'https://simoncor.net'
+baseURL                 = 'https://simoncor-net-simoncor-net.apps-crc.testing'
 title                   = '/usr/home/simon/'
 languageCode            = 'en-us'
 defaultcontentlanguage  = "en"
