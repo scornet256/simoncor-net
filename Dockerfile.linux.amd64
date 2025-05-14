@@ -9,8 +9,8 @@ RUN set -e \
       && cp -r /src/public /site/ \
       && rm -rf /src
 
-# expose 80
-EXPOSE 80
+# expose 3000
+EXPOSE 3000
 
 # start static-web-server
-ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=80", "--root=/site/"]
+ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=3000", "--root=/site/"]
