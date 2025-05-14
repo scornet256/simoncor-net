@@ -30,7 +30,7 @@ deployment:
     - |
         # initial kubernetes deployment
         ssh "$SSH_DEPLOYMENT_USER@mgmt01.infra.vpn.mirahsimon.us" "sudo -u simon \
-        kubectl apply -f /home/simon/Documents/kaas-simoncor-net/manifests"
+        kubectl apply -f /home/simon/Documents/simoncor-net/manifests"
 
         # rollout deployment
         ssh "$SSH_DEPLOYMENT_USER@mgmt01.infra.vpn.mirahsimon.us" "sudo -u simon \
