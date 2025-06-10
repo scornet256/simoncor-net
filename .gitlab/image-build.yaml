@@ -12,7 +12,7 @@ image-build:
   script:
 
     # login
-    - "echo $CR_PASSWORD | docker login $CR_HOSTNAME -u $CR_USERNAME --password-stdin"
+    - "echo $CR_PASSWORD | buildah login -u $CR_USERNAME --password-stdin $CR_HOSTNAME"
 
     # build image
     - "buildah bud -t simoncor-net -f Dockerfile.linux.amd64 ."
