@@ -1,29 +1,27 @@
 ---
 
 variables:
-  DOCKER_DRIVER: "overlay2"
-  DOCKER_HOST: "tcp://localhost:2375/"
-  DOCKER_TLS_CERTDIR: ""
+  STORAGE_DRIVER: "overlay"
+
+stages:
+  - "build"
 
 image-build:
   stage: "image-build"
-  image: "docker:27.5.1"
-  services:
-    - name: "docker:27.5.1-dind"
-      command: ["--tls=false"]
+  image: "quay.io/buildah/stable:latest"
   script:
 
-    # login to container registry
+    # login
     - "echo $CR_PASSWORD | docker login $CR_HOSTNAME -u $CR_USERNAME --password-stdin"
 
-    # build observium-pe image
-    - "docker build -t simoncor-net -f Dockerfile.linux.amd64 ."
+    # build image
+    - "buildah bud -t simoncor-net -f Dockerfile.linux.amd64 ."
 
-    # add tags to image
-    - "docker image tag simoncor-net cr.simoncor.net/siempie/simoncor-net:latest"
+    # tag image
+    - "buildah tag simoncor-net cr.simoncor.net/siempie/simoncor-net:latest"
 
-    # push image to dockerhub.
-    - "docker push --all-tags cr.simoncor.net/siempie/simoncor-net"
+    # push image
+    - "buildah push cr.simoncor.net/siempie/simoncor-net:latest"
 
-    # logout from container registry
-    - "docker logout $CR_HOSTNAME"
+    # logout
+    - "buildah logout $CR_HOSTNAME"
