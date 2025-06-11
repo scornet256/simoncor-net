@@ -1,12 +1,21 @@
 ---
 
-# linting
-linting:
+# markdownlint
+markdown-lint:
   stage: "linting"
   image:
-    name: "cr.simoncor.net/siempie/ansible-deployment:latest"
+    name: "docker.io/davidanson/markdownlint-cli2:v0.18.1"
     entrypoint: ["/bin/sh", "-c"]
-
-  # start linting
   script:
+
+    # run markdownlint
+    - "markdownlint-cli2 --config .markdownlint-cli2.jsonc"
+
+# yamllint
+yamllint:
+  stage: "linting"
+  image: "registry.gitlab.com/pipeline-components/yamllint:0.35.0"
+  script:
+
+    # run yamllint
     - "yamllint ."
