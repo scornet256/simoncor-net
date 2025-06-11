@@ -4,7 +4,7 @@
 deployment:
   stage: "deployment"
   image:
-    name: "cr.simoncor.net/siempie/ansible-deployment:latest"
+    name: "cr.simoncor.net/siempie/ssh-client:v25.06.03"
     entrypoint: ["/bin/sh", "-c"]
   rules:
 
