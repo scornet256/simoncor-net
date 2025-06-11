@@ -5,7 +5,7 @@ stages:
 
   # stages
   - "linting"
-  - "image-build"
+  - "build"
   - "deployment"
 
 
@@ -13,6 +13,6 @@ stages:
 include:
 
   # deployment
-  - local: ".gitlab/linting.yaml"
-  - local: ".gitlab/image-build.yaml"
+  - local: ".gitlab/build.yaml"
   - local: ".gitlab/deployment.yaml"
+  - local: ".gitlab/linting.yaml"

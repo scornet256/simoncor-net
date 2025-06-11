@@ -1,0 +1,13 @@
+{
+  // files to lint
+  "globs": [
+    "readme.md",
+    "docs/**/*.md"
+  ],
+  // linting rules
+  "config": {
+    "MD013": {
+      "line_length": 120
+    }
+  }
+}
