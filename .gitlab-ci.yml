@@ -15,4 +15,7 @@ include:
   # deployment
   - local: ".gitlab/build.yaml"
   - local: ".gitlab/deployment.yaml"
-  - local: ".gitlab/linting.yaml"
+
+  # linting
+  - component: "$CI_SERVER_FQDN/components/markdownlint/markdownlint@1.0.0"
+  - component: "$CI_SERVER_FQDN/components/yamllint/yamllint@1.0.2"
