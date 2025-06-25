@@ -42,9 +42,9 @@ Served as the primary responsible engineer for over a hundred Linux systems acro
 
 ### 💪 Core Competencies
 
-- Multi-distribution Linux expertise across enterprise environments
-- Infrastructure as Code practices using Ansible
-- Container orchestration and microservices architecture
-- High-availability load balancing solutions
-- Database optimization and maintenance
-- Security-focused infrastructure implementation
+- Multi-distribution Linux.
+- Infrastructure as Code practices using Ansible.
+- Container orchestration and microservices architecture.
+- High-availability loadbalancing solutions.
+- Database configuration and maintenance.
+- Security-focused infrastructure implementation.
