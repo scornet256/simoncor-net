@@ -4,13 +4,13 @@ description: "IT creation | MSP"
 date: "2017-12-13"
 ---
 
-## Linux and Network Engineer | Technical Consultant
+## 🐧 Linux and Network Engineer | Technical Consultant
 
-### Key Responsibilities
+### 🎯 Key Responsibilities
 
 Served as the primary responsible engineer for over a hundred Linux systems across diverse enterprise environments. Designed, implemented and maintained critical infrastructure components including containerized applications, loadbalancers, and database systems. Led complex network transformation projects and security implementations for our clients.
 
-### Technical Expertise
+### 🛠️ Technical Expertise
 
 - **Linux Systems Administration**:
   Extensive experience with Ubuntu, Debian, RHEL, Oracle Linux, and openSUSE distributions.
@@ -31,7 +31,7 @@ Served as the primary responsible engineer for over a hundred Linux systems acro
 - **Programming**: 
   Bash scripting (intermediate level), Go development (junior level).
 
-### Notable Projects
+### 🚀 Notable Projects
 
 - **Network Segregation Migrations**:
   Successfully executed large-scale network segregation projects, enhancing security posture and compliance for multiple client environments.
@@ -40,7 +40,7 @@ Served as the primary responsible engineer for over a hundred Linux systems acro
 - **VMware Infrastructure Projects**:
   Executed VMware vSphere upgrade projects across multiple client environments, ensuring minimal downtime and enhanced functionality. Deployed new VMware infrastructure solutions from ground up, including cluster design, resource allocation, and disaster recovery planning 
 
-### Core Competencies
+### 💪 Core Competencies
 
 - Multi-distribution Linux expertise across enterprise environments
 - Infrastructure as Code practices using Ansible
