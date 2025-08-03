@@ -1,16 +1,20 @@
-FROM cr.simoncor.net/siempie/hugo-sws:latest
+# build stage
+FROM cr.simoncor.net/siempie/hugo:latest AS builder
 
-# clone site and template
+# copy site content to /src
 COPY . /src
 
-# generate site
-RUN set -e \
-      && /usr/local/bin/hugo --source=/src/ \
-      && cp -r /src/public /site/ \
-      && rm -rf /src
+# build the hugo site
+RUN hugo --source=/src/
 
-# expose 3000
+# production stage
+FROM docker.io/joseluisq/static-web-server:2.38.0
+
+# copy built site from builder stage
+COPY --from=builder /src/public /site/
+
+# use port 3000
 EXPOSE 3000
 
-# start static-web-server
-ENTRYPOINT ["/usr/local/bin/sws", "--host=0.0.0.0", "--log-level=info", "--port=3000", "--root=/site/"]
+# run static web server
+CMD ["--host=0.0.0.0", "--log-level=info", "--port=3000", "--root=/site/"]
