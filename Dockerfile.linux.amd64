@@ -1,5 +1,5 @@
 # build stage
-FROM cr.simoncor.net/siempie/hugo:latest AS builder
+FROM cr.simoncor.net/siempie/hugo:latest AS hugo
 
 # copy site content to /src
 COPY . /src
@@ -11,7 +11,7 @@ RUN hugo --source=/src/
 FROM docker.io/joseluisq/static-web-server:2.38.0
 
 # copy built site from builder stage
-COPY --from=builder /src/public /site/
+COPY --from=hugo /src/public /site/
 
 # use port 3000
 EXPOSE 3000
