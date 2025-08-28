@@ -72,6 +72,11 @@ pygmentscodefencesguesssyntax  = true
     [languages.en.menu]
 
       [[languages.en.menu.main]]
+        name    = 'Posts'
+        weight  = 3
+        url     = 'https://simoncor.net'
+
+      [[languages.en.menu.main]]
         name    = 'About'
         weight  = 4
         url     = 'position/'
