@@ -8,7 +8,7 @@ COPY . /src
 RUN hugo --source=/src/
 
 # production stage
-FROM docker.io/joseluisq/static-web-server:2.38.0
+FROM docker.io/joseluisq/static-web-server:2.38.1
 
 # copy built site from builder stage
 COPY --from=hugo /src/public /site/
