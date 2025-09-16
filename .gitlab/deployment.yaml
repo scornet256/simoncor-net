@@ -23,5 +23,5 @@ deployment:
   # deployment commands
   script:
     - |
-        # deploy directly to cluster
+        # rollout deployment
         kubectl rollout restart deployment simoncor-net -n simoncor-net
