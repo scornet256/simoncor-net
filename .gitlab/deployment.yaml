@@ -16,7 +16,7 @@ deployment:
         # setup kubeconfig
         echo "$BUZZ_KUBECONFIG" > /tmp/kubeconfig
         export KUBECONFIG=/tmp/kubeconfig
-        
+
         # verify connection
         kubectl cluster-info
 
