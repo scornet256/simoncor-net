@@ -2,6 +2,7 @@
 
 variables:
   STORAGE_DRIVER: "overlay"
+  IMAGE_TAG: "simoncor-net"
 
 stages:
   - "build"
@@ -11,17 +12,17 @@ build:
   image: "quay.io/buildah/stable:latest"
   script:
 
-    # login
-    - "echo $CR_PASSWORD | buildah login -u $CR_USERNAME --password-stdin $CR_HOSTNAME"
+    # login to container registry
+    - "echo $CI_REGISTRY_PASSWORD | buildah login -u $CI_REGISTRY_USER --password-stdin $CI_REGISTRY"
 
     # build image
-    - "buildah bud -t simoncor-net -f Dockerfile.linux.amd64 ."
+    - "buildah bud -t $IMAGE_TAG -f Dockerfile.linux.amd64 ."
 
-    # tag image
-    - "buildah tag simoncor-net cr.simoncor.net/siempie/simoncor-net:latest"
+    # add tags to image
+    - "buildah tag $IMAGE_TAG $CI_REGISTRY_IMAGE:latest"
 
     # push image
-    - "buildah push cr.simoncor.net/siempie/simoncor-net:latest"
+    - "buildah push $CI_REGISTRY_IMAGE:latest"
 
-    # logout
-    - "buildah logout $CR_HOSTNAME"
+    # logout from container registry
+    - "buildah logout $CI_REGISTRY"
