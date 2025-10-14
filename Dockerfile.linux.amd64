@@ -1,5 +1,5 @@
 # build stage
-FROM cr.simoncor.net/siempie/hugo:latest AS hugo
+FROM registry.gitlab.simoncor.net/oci/hugo:latest AS hugo
 
 # copy site content to /src
 COPY . /src
