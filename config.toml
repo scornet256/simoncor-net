@@ -72,16 +72,11 @@ pygmentscodefencesguesssyntax  = true
     [languages.en.menu]
 
       [[languages.en.menu.main]]
-        name    = 'Posts'
+        name    = 'Docs'
         weight  = 3
-        url     = 'https://simoncor.net'
+        url     = 'https://docs.simoncor.net'
 
       [[languages.en.menu.main]]
         name    = 'About'
         weight  = 4
         url     = 'position/'
-
-      [[languages.en.menu.main]]
-        name    = 'CV'
-        weight  = 5
-        url     = 'scornet_cv.pdf'
