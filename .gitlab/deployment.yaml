@@ -35,4 +35,3 @@ deployment:
         # rollout deployment
         ssh "$SSH_DEPLOYMENT_USER@mgmt01.siempie.internal" "sudo -u simon \
         kubectl rollout restart --namespace=simoncor-net deployment simoncor-net"
-
