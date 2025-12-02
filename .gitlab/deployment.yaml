@@ -1,27 +1,38 @@
 ---
+
 # deploy container on kubernetes
 deployment:
   stage: "deployment"
   image:
-    name: "bitnami/kubectl:latest"
-    entrypoint: [""]
+    name: "registry.gitlab.simoncor.net/oci/ssh-client:v25.06.03"
+    entrypoint: ["/bin/sh", "-c"]
   rules:
 
     # run only on push to default branch
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
     - when: "never"
 
+  # prepare ssh
   before_script:
-    - |
-        # setup kubeconfig
-        echo "$BUZZ_KUBECONFIG" > /tmp/kubeconfig
-        export KUBECONFIG=/tmp/kubeconfig
 
-        # verify connection
-        kubectl cluster-info
+    # prepare ssh
+    - |
+        # prepare ssh
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
+        echo "$SSH_CONFIG" > ~/.ssh/config
+        echo "$SSH_DEPLOYMENT_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
 
   # deployment commands
   script:
+
     - |
+        # initial kubernetes deployment
+        ssh "$SSH_DEPLOYMENT_USER@mgmt01.siempie.internal" "sudo -u simon \
+        kubectl apply -f /home/simon/Documents/simoncor-net/manifests"
+
         # rollout deployment
-        kubectl rollout restart deployment simoncor-net -n simoncor-net
+        ssh "$SSH_DEPLOYMENT_USER@mgmt01.siempie.internal" "sudo -u simon \
+        kubectl rollout restart --namespace=simoncor-net deployment simoncor-net"
+
