@@ -4,30 +4,20 @@
 deployment:
   stage: "deployment"
   image:
-    name: "registry.gitlab.simoncor.net/oci/ssh-client:v25.06.03"
-    entrypoint: ["/bin/sh", "-c"]
+    name: "quay.io/argoproj/argocd:v3.2.5"
+    entrypoint: [""]
   rules:
 
     # run only on push to default branch
     - if: '$CI_PIPELINE_SOURCE == "push" && $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH'
     - when: "never"
 
-  # prepare ssh
-  before_script:
-
-    # prepare ssh
-    - |
-        # prepare ssh
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
-        echo "$SSH_CONFIG" > ~/.ssh/config
-        echo "$SSH_DEPLOYMENT_KEY" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-
-  # deployment commands
   script:
 
-    - |
-        # rollout deployment
-        ssh "$SSH_DEPLOYMENT_USER@mgmt01.siempie.internal" "sudo -u simon \
-        kubectl rollout restart --namespace=simoncor-net deployment simoncor-net"
+    # execute a rollout restart using argocd
+    - "argocd app actions run simoncor-net restart \
+       --kind Deployment \
+       --resource-name simoncor-net \
+       --server $ARGOCD_SERVER \
+       --auth-token $ARGOCD_AUTH_TOKEN \
+       --grpc-web"
