@@ -1,9 +1,10 @@
 ---
 
-# gitLab ci stages
+# gitlab stages
 stages:
 
   # stages
+  - "gitleaks"
   - "linting"
   - "build"
   - "deployment"
@@ -12,10 +13,11 @@ stages:
 # include jobs
 include:
 
-  # deployment
+  # locals
   - local: ".gitlab/build.yaml"
   - local: ".gitlab/deployment.yaml"
 
-  # linting
+  # components
+  - component: "$CI_SERVER_FQDN/components/gitleaks/gitleaks@v1.0.0"
   - component: "$CI_SERVER_FQDN/components/markdownlint/markdownlint@1.0.0"
   - component: "$CI_SERVER_FQDN/components/yamllint/yamllint@1.0.2"
