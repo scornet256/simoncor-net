@@ -1,5 +1,9 @@
 ---
 
+# gitlab variables
+variables:
+  GIT_SUBMODULE_STRATEGY: "recursive"
+
 # gitlab stages
 stages:
 
