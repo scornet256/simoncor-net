@@ -2,8 +2,9 @@
 <html lang="{{ .Site.Language.Lang }}">
 
 <head>
-  <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+  <title>{{ block "title" . }}{{ .Site.Params.HeadTitle | default .Site.Title }}{{ end }}</title>
   {{ partial "head.html" . }}
+
 </head>
 
 {{ $csClass := "colorscheme-light" }}
@@ -29,7 +30,7 @@
   <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"
     integrity="sha256-QdTG1YTLLTwD3b95jLqFxpQX9uYuJMNAtVZgwKX4oYU=" crossorigin="anonymous"></script>
   <script>
-    mermaid.initialize({ startOnLoad: true });
+    mermaid.initialize({startOnLoad: true});
   </script>
   {{ end }}
 
@@ -41,7 +42,7 @@
   {{ $script := resources.Get "js/coder.js" }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
-  {{ $script := resources.Get "js/coder.js" | minify | fingerprint }}
+  {{ $script := resources.Get "js/coder.js" | resources.Minify | resources.Fingerprint }}
   <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
   {{ end }}
 
@@ -50,7 +51,7 @@
   {{ $script := resources.Get . }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
-  {{ $script := resources.Get . | minify | fingerprint }}
+  {{ $script := resources.Get . | resources.Minify | resources.Fingerprint }}
   <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
   {{ end }}
   {{ end }}
@@ -60,13 +61,16 @@
   {{ $script := resources.GetRemote . }}
   <script src="{{ $script.RelPermalink }}"></script>
   {{ else }}
-  {{ $script := resources.GetRemote . | minify | fingerprint }}
+  {{ $script := resources.GetRemote . | resources.Minify | resources.Fingerprint }}
   <script src="{{ $script.RelPermalink }}" integrity="{{ $script.Data.Integrity }}"></script>
   {{ end }}
   {{ end }}
 
-
   {{ template "_internal/google_analytics.html" . }}
+
+  {{ if and .Site.Params.counterdev .Site.Params.counterdev.id }}
+  {{- partial "analytics/counterdev" . -}}
+  {{ end }}
 
   {{ if and .Site.Params.fathomAnalytics .Site.Params.fathomAnalytics.siteID }}
   {{- partial "analytics/fathom" . -}}
@@ -106,6 +110,10 @@
 
   {{ if and .Site.Params.microAnalytics .Site.Params.microAnalytics.id }}
   {{- partial "analytics/microanalyticsio" . -}}
+  {{ end }}
+
+  {{ if and .Site.Params.onedollarstats .Site.Params.onedollarstats.id }}
+  {{- partial "analytics/onedollarstats" . -}}
   {{ end }}
 
   {{ if .Site.Params.vercelAnalytics}}
