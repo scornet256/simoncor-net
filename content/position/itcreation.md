@@ -4,11 +4,14 @@ description: "IT creation | MSP"
 date: "2017-12-13"
 ---
 
-## 🐧 Linux and Network Engineer | Technical Consultant
+## 🐧 Linux and Infrastructure Engineer | Technical Consultant
 
 ### 🎯 Key Responsibilities
 
-Served as the primary responsible engineer for over a hundred Linux systems across diverse enterprise environments. Designed, implemented and maintained critical infrastructure components including containerized applications, loadbalancers, and database systems. Led complex network transformation projects and security implementations for our clients.
+Served as the primary responsible engineer for over a hundred Linux systems across diverse enterprise environments.
+Designed, implemented and maintained critical infrastructure components including containerized applications,
+loadbalancers, and database systems. Led complex network transformation projects and security implementations for
+clients.
 
 ### 🛠️ Technical Expertise
 
